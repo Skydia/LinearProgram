@@ -1,0 +1,10 @@
+D:\VS Projects\Linear Program\Linear Program\bin\Debug\Linear Program.exe.config
+D:\VS Projects\Linear Program\Linear Program\bin\Debug\Linear Program.exe
+D:\VS Projects\Linear Program\Linear Program\bin\Debug\Linear Program.pdb
+D:\VS Projects\Linear Program\Linear Program\obj\Debug\Linear Program.csprojAssemblyReference.cache
+D:\VS Projects\Linear Program\Linear Program\obj\Debug\Linear_Program.LinearProgram.resources
+D:\VS Projects\Linear Program\Linear Program\obj\Debug\Linear_Program.Properties.Resources.resources
+D:\VS Projects\Linear Program\Linear Program\obj\Debug\Linear Program.csproj.GenerateResource.cache
+D:\VS Projects\Linear Program\Linear Program\obj\Debug\Linear Program.csproj.CoreCompileInputs.cache
+D:\VS Projects\Linear Program\Linear Program\obj\Debug\Linear Program.exe
+D:\VS Projects\Linear Program\Linear Program\obj\Debug\Linear Program.pdb
