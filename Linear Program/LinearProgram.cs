@@ -185,8 +185,6 @@ namespace Linear_Program
                 }
                 j++;
             }
-            dataGridView2.Rows[0].Cells[0].Value = minColumns;
-            dataGridView2.Rows[0].Cells[1].Value = minRows;
             /*
             i = 1;
             j = 0;
