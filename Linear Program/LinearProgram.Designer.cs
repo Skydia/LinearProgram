@@ -208,6 +208,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.trackBar2);
             this.Controls.Add(this.trackBar1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "LinearProgram";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.LinearProgram_Load);
