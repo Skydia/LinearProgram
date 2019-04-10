@@ -45,7 +45,8 @@ namespace Linear_Program
 
 
         private void button1_Click(object sender, EventArgs e)
-        {         
+        {
+            button2.Enabled = true;
             dataGridView1.Rows.Clear();
             dataGridView1.Columns.Clear();
             dataGridView1.DataSource = null;
@@ -163,6 +164,7 @@ namespace Linear_Program
             }
 
             //////////////////Proses Hitung//////////////////
+            //Variabel gaus untuk menentukan apakah masih ada nilai min pada baris fungsi tujuan
             bool gauss = true;
             for(int a = 1;a <= dataGridView2.ColumnCount - 4; a++)
             {
@@ -170,18 +172,18 @@ namespace Linear_Program
             }
             while (gauss)
             {
-                j = 1;
-                decimal minColumnsValue = 99999;
-                int minColumns = 0;
+                decimal minColumnsValue = Convert.ToDecimal(dataGridView2.Rows[0].Cells[1].Value);
+                int minColumns = 1;
                 for(int equation = 1; equation < dataGridView2.RowCount; equation++)
                 {
                     dataGridView2.Rows[equation].Cells[dataGridView2.ColumnCount-1].Value = "<=" + dataGridView2.Rows[equation].Cells[dataGridView2.ColumnCount - 2].Value;
                 }
+
                 //////////////////Cari Kolom//////////////////
+                j = 2;
                 while (j <= dataGridView2.ColumnCount - 4)
                 {
-                    decimal tempMinColumns = Convert.ToDecimal(dataGridView2.Rows[0].Cells[j].Value);
-                    if (tempMinColumns < minColumnsValue)
+                    if (Convert.ToDecimal(dataGridView2.Rows[0].Cells[j].Value) < minColumnsValue)
                     {
                         minColumns = j;
                         minColumnsValue = Convert.ToDecimal(dataGridView2.Rows[0].Cells[j].Value);
@@ -193,42 +195,53 @@ namespace Linear_Program
                     gauss = false;
                     break;
                 }
-                //////////////////Cari Baris//////////////////
+
+                /////////////////Hitung Rasio/////////////////////////
                 j = 1;
-                decimal minRatioValue = 99999;
-                int minRows = 0;
                 decimal[] ratio = new decimal[dataGridView2.RowCount];
                 Array.Clear(ratio, 0, ratio.Length);
                 while (j <= dataGridView2.RowCount - 1)
                 {
-                    if (Convert.ToDecimal(dataGridView2.Rows[j].Cells[dataGridView2.ColumnCount - 2].Value) == 0 || Convert.ToDecimal(dataGridView2.Rows[j].Cells[minColumns].Value)==0)
+                    if(Convert.ToDecimal(dataGridView2.Rows[j].Cells[minColumns].Value) == 0)
                     {
+                        ratio[j] = 99999;
                     }
                     else
                     {
                         ratio[j] = Convert.ToDecimal(dataGridView2.Rows[j].Cells[dataGridView2.ColumnCount - 2].Value) / Convert.ToDecimal(dataGridView2.Rows[j].Cells[minColumns].Value);
-                        if (ratio[j] < minRatioValue)
-                        {
-                            minRows = j;
-                            minRatioValue = ratio[j];
-                        }
                     }
                     j++;
                 }
-                j = 1;
-                dataGridView2.Rows[minRows].Cells[0].Value = dataGridView2.Columns[minColumns].HeaderText;
-                // pivot row[minRows].columns[minColumns]
-                //////////////////Set nilai pada baris dengan rasio terkecil//////////////////
-                decimal pembagi = Convert.ToDecimal(dataGridView2.Rows[minRows].Cells[minColumns].Value);
-                while (j <= dataGridView2.ColumnCount - 4)
+
+                //////////////////Cari Baris//////////////////
+                j = 2;
+                decimal minRatioValue = ratio[1];
+                int minRows = 1;
+                while (j <= dataGridView2.RowCount - 1)
                 {
-                    dataGridView2.Rows[minRows].Cells[j].Value = Convert.ToDecimal(dataGridView2.Rows[minRows].Cells[j].Value) / pembagi;
+                    if (ratio[j] < minRatioValue)
+                    {
+                        minRows = j;
+                        minRatioValue = ratio[j];
+                    }
                     j++;
                 }
-                dataGridView2.Rows[minRows].Cells[dataGridView2.ColumnCount - 2].Value = Convert.ToDecimal(dataGridView2.Rows[minRows].Cells[dataGridView2.ColumnCount - 2].Value) / pembagi;
+                dataGridView2.Rows[minRows].Cells[0].Value = dataGridView2.Columns[minColumns].HeaderText;
 
-                j = 0;
+                //////////////////Membagi baris rasio terkecil dengan pivot//////////////////
+                // pivot row[minRows].columns[minColumns]
+                j = 1;
+                decimal pivot = Convert.ToDecimal(dataGridView2.Rows[minRows].Cells[minColumns].Value);
+                while (j <= dataGridView2.ColumnCount - 4)
+                {
+                    dataGridView2.Rows[minRows].Cells[j].Value = Convert.ToDecimal(dataGridView2.Rows[minRows].Cells[j].Value) / pivot;
+                    j++;
+                }
+                dataGridView2.Rows[minRows].Cells[dataGridView2.ColumnCount - 2].Value = Convert.ToDecimal(dataGridView2.Rows[minRows].Cells[dataGridView2.ColumnCount - 2].Value) / pivot;
+
                 //////////////////Gauss//////////////////
+                //perkalian adalah pengali untuk menjadikan nilai nol pada kolom pivot
+                j = 0;
                 while (j <= dataGridView2.RowCount - 1)
                 {
                     i = 1;

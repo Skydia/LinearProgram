@@ -8,3 +8,13 @@ D:\VS Projects\Linear Program\Linear Program\obj\Release\Linear Program.csproj.G
 D:\VS Projects\Linear Program\Linear Program\obj\Release\Linear Program.csproj.CoreCompileInputs.cache
 D:\VS Projects\Linear Program\Linear Program\obj\Release\Linear Program.exe
 D:\VS Projects\Linear Program\Linear Program\obj\Release\Linear Program.pdb
+D:\KULIAH\Semester 4\Operasi Riset\LinearProgram\Linear Program\bin\Release\Linear Program.exe.config
+D:\KULIAH\Semester 4\Operasi Riset\LinearProgram\Linear Program\bin\Release\Linear Program.exe
+D:\KULIAH\Semester 4\Operasi Riset\LinearProgram\Linear Program\bin\Release\Linear Program.pdb
+D:\KULIAH\Semester 4\Operasi Riset\LinearProgram\Linear Program\obj\Release\Linear Program.csprojResolveAssemblyReference.cache
+D:\KULIAH\Semester 4\Operasi Riset\LinearProgram\Linear Program\obj\Release\Linear_Program.LinearProgram.resources
+D:\KULIAH\Semester 4\Operasi Riset\LinearProgram\Linear Program\obj\Release\Linear_Program.Properties.Resources.resources
+D:\KULIAH\Semester 4\Operasi Riset\LinearProgram\Linear Program\obj\Release\Linear Program.csproj.GenerateResource.cache
+D:\KULIAH\Semester 4\Operasi Riset\LinearProgram\Linear Program\obj\Release\Linear Program.csproj.CoreCompileInputs.cache
+D:\KULIAH\Semester 4\Operasi Riset\LinearProgram\Linear Program\obj\Release\Linear Program.exe
+D:\KULIAH\Semester 4\Operasi Riset\LinearProgram\Linear Program\obj\Release\Linear Program.pdb
